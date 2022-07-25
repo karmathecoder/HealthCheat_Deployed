@@ -3,8 +3,8 @@ from flask import Flask,request,jsonify, render_template
 import pickle
 
 app=Flask(__name__)
-heart_svc = pickle.load(open('.\heart_svc\heart_svc.pkl','rb'))
-diabetes_rfc = pickle.load(open('.\diabetes_rfc\diabetes_rfc.pkl','rb'))
+heart_svc = pickle.load(open('heart_svc\heart_svc.pkl','rb'))
+diabetes_rfc = pickle.load(open('diabetes_rfc\diabetes_rfc.pkl','rb'))
 
 @app.route('/')
 def home():
