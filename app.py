@@ -1,10 +1,10 @@
 import numpy as np
 from flask import Flask,request,jsonify, render_template
-import pickle
+import joblib
 
 app=Flask(__name__)
-heart_svc = pickle.load(open('heart_svc.pkl','rb'))
-diabetes_rfc = pickle.load(open('diabetes_rfc.pkl','rb'))
+heart_svc = joblib.load('heart_svc/heart_svc.pkl')
+diabetes_rfc = joblib.load('diabetes_rfc/diabetes_rfc.pkl')
 
 @app.route('/')
 def home():
