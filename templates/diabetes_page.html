@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Diabetes Predicion</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<!--CSS-->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/back_button.css') }}"> -->
+
+<!--JS-->
+<!-- <script src="{{ url_for('static', filename='js/back_button.js') }}"></script> -->
+
+</head>
+
+<body>
+  <form action="{{ url_for('home')}}">
+    <button type="submit" class="glow-on-hover" style="float: left;">Back To Main Page</button>
+  </form>
+
+    <div class="login">
+	<h1>Diabates Predicion</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict_diabetes')}}"method="post">
+    	<input type="text" name="Pregnancies" placeholder="Pregnancies" required="required" />
+      <input type="text" name="Glucose" placeholder="Glucose" required="required" />
+		  <input type="text" name="BloodPressure" placeholder="Blood Pressure" required="required" />
+		  <input type="text" name="SkinThickness" placeholder="Skin Thickness" required="required" />
+		  <input type="text" name="Insulin" placeholder="Insulin" required="required" />
+		  <input type="text" name="BMI" placeholder="BMI" required="required" />
+		  <input type="text" name="DiabetesPedigree" placeholder="Diabetes Pedigree" required="required" />
+		  <input type="text" name="Age" placeholder="BMI" required="Age" />
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
